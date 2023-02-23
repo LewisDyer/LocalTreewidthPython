@@ -1,5 +1,5 @@
 import networkx as nx
-from networkx.algorithms.approximation import treewidth_min_degree
+from networkx.algorithms.approximation import treewidth_min_degree, treewidth_min_fill_in
 import matplotlib.pyplot as plt
 
 import lg_parser
@@ -29,7 +29,7 @@ if __name__ == '__main__':
     #plt.show()
     G = lg_parser.parse_lg("mico.lg")
     tws = local_treewidth(G, 1)
-    f = open("tws.txt", "w")
+    f = open("mico_tws_degree.txt", "w")
     for tw in tws:
         f.write(f"{tw}\n")
     
