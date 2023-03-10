@@ -3,6 +3,7 @@ from networkx.algorithms.approximation import treewidth_min_degree, treewidth_mi
 import matplotlib.pyplot as plt
 
 import lg_parser
+import patent_parser
 
 def local_treewidth(G, radius):
 
@@ -27,9 +28,9 @@ if __name__ == '__main__':
 
     #nx.draw(G)
     #plt.show()
-    G = lg_parser.parse_lg("mico.lg")
+    G = patent_parser.parse_patents('cit-Patents.txt')
     tws = local_treewidth(G, 1)
-    f = open("mico_tws_degree.txt", "w")
+    f = open("patents_tws_degree.txt", "w")
     for tw in tws:
         f.write(f"{tw}\n")
     

@@ -11,7 +11,7 @@ def read_tws_file(filename):
     return tws
 
 if __name__ == '__main__':
-    tws = read_tws_file('mico_tws_fillin.txt')
+    tws = read_tws_file('patents_tws_degree.txt')
     #print(tws)
 
     counts = defaultdict(int)
@@ -19,7 +19,7 @@ if __name__ == '__main__':
     for tw in tws:
         counts[tw] += 1
 
-    #pprint(counts)
+    pprint(counts)
 
     count = [0] * (max(counts)+1)
     print(len(count))
@@ -31,8 +31,8 @@ if __name__ == '__main__':
 
     fig = plt.figure()
     ax = fig.add_subplot(1,1,1)
-    ax.plot(count)
-    #ax.hist(count, bins=100)
+    #ax.plot(counts)
+    ax.hist(tws, bins=100)
     ax.set_yscale('log')
     plt.show()
 
