@@ -1,5 +1,5 @@
 import networkx as nx
-from networkx.algorithms.approximation import treewidth_min_degree, treewidth_min_fill_in
+from networkx.algorithms.approximation import treewidth_min_degree
 import matplotlib.pyplot as plt
 
 import lg_parser
@@ -11,9 +11,6 @@ def local_treewidth(G, radius):
     densities = [0] * len(G.nodes())
     for i, v in enumerate(G.nodes()):
         ball = nx.ego_graph(G, v, radius)
-        degrees = dict(ball.degree())
-        max_degree_node = max(degrees, key=degrees.get)
-        ball.remove_node(max_degree_node)
         tw = treewidth_min_degree(ball)[0]
         treewidths[i] = tw
         densities[i] = nx.density(ball)
@@ -32,12 +29,13 @@ if __name__ == '__main__':
 
     #nx.draw(G)
     #plt.show()
-    G = lg_parser.parse_lg('mico.lg')
+    #G = lg_parser.parse_lg('mico.lg')
+    G = patent_parser.parse_patents('cit-Patents.txt')
     tws, dens = local_treewidth(G, 1)
-    f = open("patents_tws_degree_remove_high_degree.txt", "w")
+    f = open("patents_tws.txt", "w")
     for tw in tws:
         f.write(f"{tw}\n")
-    f = open("patents_density_degree_remove_high_degree.txt", "w")
+    f = open("patents_density.txt", "w")
     for den in dens:
         f.write(f"{den}\n")
 
