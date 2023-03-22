@@ -2,11 +2,11 @@ import matplotlib.pyplot as plt
 
 tws = []
 densities = []
-with open("mico_tws.txt") as tw:
+with open("patents_tws.txt") as tw:
     for line in tw:
         tws.append(float(line.strip()))
 
-with open("mico_density.txt") as dens:
+with open("patents_density.txt") as dens:
     for line in dens:
         densities.append(float(line.strip()))
 
