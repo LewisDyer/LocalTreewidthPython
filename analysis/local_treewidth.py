@@ -2,8 +2,8 @@ import networkx as nx
 from networkx.algorithms.approximation import treewidth_min_degree
 import matplotlib.pyplot as plt
 
-import lg_parser
-import patent_parser
+import analysis.lg_parser as lg_parser
+import analysis.patent_parser as patent_parser
 
 def local_treewidth(G, radius):
 

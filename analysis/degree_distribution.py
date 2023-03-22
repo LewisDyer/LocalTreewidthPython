@@ -1,8 +1,8 @@
 import networkx as nx
 from collections import defaultdict
 from pprint import pprint
-import lg_parser
-import patent_parser
+import analysis.lg_parser as lg_parser
+import analysis.patent_parser as patent_parser
 import matplotlib.pyplot as plt
 
 

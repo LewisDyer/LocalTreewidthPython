@@ -1,7 +1,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
-import lg_parser
-import patent_parser
+import analysis.lg_parser as lg_parser
+import analysis.patent_parser as patent_parser
 
 def degeneracy(G):
     core_values = nx.core_number(G)

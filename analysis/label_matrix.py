@@ -1,5 +1,5 @@
 import networkx as nx
-import lg_parser
+import analysis.lg_parser as lg_parser
 import numpy as np
 import matplotlib.pyplot as plt
 def show_labels(G):
