@@ -1,0 +1,4 @@
+REPORT for patents graph:
+3774768 nodes
+16518948 edges
+Average edge density is 4.376149209699775

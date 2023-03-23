@@ -1,0 +1,4 @@
+REPORT for mico GRAPH:
+100000 nodes
+1080156 edges
+Average edge density is 10.80156
