@@ -4,6 +4,7 @@ import math
 tws = []
 densities = []
 degrees = []
+clusters = []
 with open("outputs/mico_tws.txt") as tw:
     for line in tw:
         tws.append(float(line.strip()))
@@ -16,10 +17,13 @@ with open("outputs/mico_degrees.txt") as degs:
     for line in degs:
         degrees.append(int(line.strip()))
 
+with open("outputs/mico_clustering.txt") as clus:
+    for line in clus:
+        clusters.append(float(line.strip()))
 log_degrees = [math.log(d, 2) if d > 0 else 0 for d in degrees]
 
 
-fig, ax = plt.subplots(3, figsize=(15,15))
+fig, ax = plt.subplots(4, figsize=(15,15))
 
 fig.suptitle('Comparison between local density parameters for mico dataset')
 
@@ -35,5 +39,9 @@ ax[2].scatter(degrees, densities, marker='.')
 ax[2].set_xlabel("degree of starting vertex")
 ax[2].set_ylabel("local edge density")
 
+ax[3].scatter(densities, clusters, marker='.')
+ax[3].set_xlabel("local edge density")
+ax[3].set_ylabel("local clustering coefficient of starting vertex")
+
 #sc = ax.scatter(tws, degrees,  marker='.')
-plt.savefig('figures/mico_density.png', dpi=300)
+plt.savefig('figures/mico_density.jpg', dpi=300)
